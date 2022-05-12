@@ -17,10 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return 'is authenticated';
-});
+})->name('private-route');
 
 Route::post('/register', [AuthController::class, 'register']);
 
-//Route::get('/norm', function () {
-//   return 'norm';
-//});
+Route::post('/login', [AuthController::class, 'login']);
