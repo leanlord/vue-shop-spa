@@ -5,11 +5,7 @@
     use App\Http\Controllers\Controller;
     use App\Http\Requests\RegisterRequest;
     use App\Models\User;
-    use Illuminate\Contracts\Foundation\Application;
     use Illuminate\Http\JsonResponse;
-    use Illuminate\Http\RedirectResponse;
-    use Illuminate\Http\Request;
-    use Illuminate\Routing\Redirector;
     use Illuminate\Support\Facades\Auth;
 
     class AuthController extends Controller
@@ -19,7 +15,7 @@
          * @return JsonResponse
          */
         public function register(RegisterRequest $request): JsonResponse {
-            $user = User::create($request->validated());
+            Auth::login($user = User::create($request->validated()));
             return response()->json([
                 'user' => $user,
                 'token' => $user->createToken('auth_token')->plainTextToken,
@@ -48,7 +44,7 @@
         /**
          * @return JsonResponse
          */
-        public function logout() {
+        public function logout(): JsonResponse {
             Auth::logout();
 
             return response()->json([
