@@ -13,6 +13,7 @@
      * App\Models\User
      *
      * @property int $id
+     * @property string $phone
      * @property string $name
      * @property string $email
      * @property \Illuminate\Support\Carbon|null $email_verified_at
@@ -39,6 +40,8 @@
      * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
      * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
      * @mixin \Eloquent
+     * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Product[] $products
+     * @property-read int|null $products_count
      */
     class User extends Authenticatable
     {
@@ -53,6 +56,7 @@
             'name',
             'email',
             'password',
+            'phone',
         ];
 
         /**
