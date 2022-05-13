@@ -1,5 +1,4 @@
 const mix = require("laravel-mix");
-
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -18,4 +17,6 @@ mix.js("resources/js/app.js", "public/js")
     .sourceMaps()
     .browserSync({
         proxy: "coys.test",
-    });
+    })
+    .copy('resources/fonts', 'public/fonts')
+    .copy('resources/assets', 'public/assets');

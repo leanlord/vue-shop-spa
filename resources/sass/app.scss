@@ -1,8 +1,27 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@font-face {
+    font-family: 'Gilroy';
+    weight: 800;
+    src: url('/fonts/Gilroy-ExtraBold.woff') format('woff');
+}
+@font-face {
+    font-family: 'Gilroy';
+    weight: 300;
+    src: url('/fonts/Gilroy-Light.woff') format('woff');
+}
 
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Common styles
+.body {
+    font-family: 'Gilroy', serif;
+    background-color: $body-bg;
+}
+
+.container {
+    max-width: 1390px;
+    padding-right: 25px;
+    padding-left: 25px;
+    margin: 0 auto;
+}
