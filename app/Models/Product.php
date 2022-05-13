@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * App\Models\Product
@@ -31,7 +32,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    public function clothe() {
+    public function clothe(): BelongsTo {
         return $this->belongsTo(Clothe::class);
     }
 }

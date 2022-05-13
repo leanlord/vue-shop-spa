@@ -1,8 +1,8 @@
 <?php
 
     use App\Http\Controllers\Api\AuthController;
-    use App\Http\Controllers\Api\CardController;
     use App\Http\Controllers\Api\ClothesController;
+    use App\Http\Controllers\Api\ProductController;
     use App\Http\Requests\UpdateAccountRequest;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Route;
@@ -27,11 +27,14 @@
             $request->user()->update($request->validated());
         });
 
-        Route::get('/card', [CardController::class, 'index'])
-            ->name('card');
+        Route::apiResource('products', ProductController::class, [
+            'except' => 'update',
+        ]);
     });
 
-    Route::apiResource('clothe', ClothesController::class);
+    Route::apiResource('clothes', ClothesController::class, [
+        'except' => ['update', 'destroy', 'store',],
+    ]);
 
     Route::post('/register', [AuthController::class, 'register'])
         ->name('register');
