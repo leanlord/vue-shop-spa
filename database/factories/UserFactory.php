@@ -23,6 +23,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => 'password', // password
             'remember_token' => Str::random(10),
+            'phone' => '+7(918)449-31-37'
         ];
     }
 

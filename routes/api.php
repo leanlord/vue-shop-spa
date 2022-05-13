@@ -2,6 +2,8 @@
 
     use App\Http\Controllers\Api\AuthController;
     use App\Http\Controllers\Api\CardController;
+    use App\Http\Controllers\Api\ClothesController;
+    use App\Http\Requests\UpdateAccountRequest;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Route;
 
@@ -21,12 +23,21 @@
             return $request->user();
         })->name('private-route');
 
+        Route::post('/account', function (UpdateAccountRequest $request) {
+            $request->user()->update($request->validated());
+        });
+
         Route::get('/card', [CardController::class, 'index'])
             ->name('card');
     });
 
-    Route::post('/register', [AuthController::class, 'register']);
+    Route::apiResource('clothe', ClothesController::class);
 
-    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/register', [AuthController::class, 'register'])
+        ->name('register');
 
-    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::post('/login', [AuthController::class, 'login'])
+        ->name('login');
+
+    Route::get('/logout', [AuthController::class, 'logout'])
+        ->name('logout');
