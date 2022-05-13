@@ -36,7 +36,6 @@
             ]);
 
             if (Auth::attempt($credentials, true)) {
-                \request()->session()->regenerate();
                 return response()->json([
                     'message' => 'Successfully!'
                 ]);
