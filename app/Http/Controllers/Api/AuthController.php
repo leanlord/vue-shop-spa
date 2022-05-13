@@ -45,4 +45,15 @@
             return response()->json(['message' => 'Wrong login or password'], 403);
 
         }
+
+        /**
+         * @return JsonResponse
+         */
+        public function logout() {
+            \auth()->user()->tokens()->delete();
+
+            return response()->json([
+                'message' => 'Logged out'
+            ]);
+        }
     }
