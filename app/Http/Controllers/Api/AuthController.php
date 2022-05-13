@@ -50,7 +50,7 @@
          * @return JsonResponse
          */
         public function logout() {
-            \auth()->user()->tokens()->delete();
+            Auth::logout();
 
             return response()->json([
                 'message' => 'Logged out'

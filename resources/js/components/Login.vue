@@ -7,6 +7,7 @@
         <button type="submit">Send</button>
     </form>
     <button @click="norm">Test</button>
+    <button @click="logout">Logout</button>
 </template>
 
 <script>
@@ -27,9 +28,12 @@ export default {
         const norm = async () => {
             await axios.get('/api/user')
         }
+        const logout = async () => {
+            await axios.get('/api/logout')
+        }
 
         return {
-            email, password, login, norm
+            email, password, login, norm, logout
         }
     }
 }
