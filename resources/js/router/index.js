@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Account from "../components/Account";
-import AuthForm from "../components/AuthForm";
-import Login from "../components/Login";
+import Account from "../layouts/Account";
+import Catalog from "../layouts/Catalog";
 
 const routes = [
     {
@@ -10,16 +9,10 @@ const routes = [
         component: Account,
     },
     {
-        path: "/auth",
-        name: "Auth",
-        component: AuthForm,
+        path: "/catalog",
+        name: "Catalog",
+        component: Catalog,
     },
-    {
-        path: "/login",
-        name: "Login",
-        component: Login,
-    },
-
 ];
 
 const router = createRouter({
