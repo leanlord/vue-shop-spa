@@ -2,6 +2,7 @@
 
     use App\Http\Controllers\Api\AuthController;
     use App\Http\Controllers\Api\CardController;
+    use App\Http\Controllers\Api\ClothesController;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Route;
 
@@ -25,8 +26,13 @@
             ->name('card');
     });
 
-    Route::post('/register', [AuthController::class, 'register']);
+    Route::apiResource('clothe', ClothesController::class);
 
-    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/register', [AuthController::class, 'register'])
+        ->name('register');
 
-    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::post('/login', [AuthController::class, 'login'])
+        ->name('login');
+
+    Route::get('/logout', [AuthController::class, 'logout'])
+        ->name('logout');
