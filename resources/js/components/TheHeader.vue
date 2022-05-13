@@ -13,15 +13,22 @@
         <div class="header__aside">
             <a href="tel:79034655304" class="header__link">+7 903 465 53 04</a>
             <router-link to="/account" class="header__link">Кабинет</router-link>
-            <router-link to="/auth" class="header__link">Регистрация</router-link>
-            <router-link to="/login" class="header__link">Логин</router-link>
+            <button @click="store.currentModal = 'modalAuth'">Авторизация</button>
         </div>
     </header>
 </template>
 
 <script>
+import {useStore} from "../store/useStore";
+
 export default {
-    name: "TheHeader"
+    name: "TheHeader",
+    setup() {
+        const store = useStore();
+        return {
+            store
+        }
+    }
 }
 </script>
 
