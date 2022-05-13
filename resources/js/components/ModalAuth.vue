@@ -40,6 +40,7 @@ export default {
             })
         }
 
+
         return {
             email, password, login, store
         }

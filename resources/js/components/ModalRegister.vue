@@ -9,6 +9,8 @@
         <input type="text" name="name" id="name" v-model="name" placeholder="Ваше имя и фамилия">
         <label for="email">Email</label>
         <input type="email" name="email" id="email" v-model="email" placeholder="Ваш email">
+        <label for="phone">Телефон</label>
+        <input type="text" name="phone" id="phone" v-model="phone" placeholder="Ваш phone">
         <label for="password">Пароль</label>
         <input type="password" v-model="password" name="password" id="password">
         <label for="password_confirmation">Пароль</label>
@@ -30,6 +32,7 @@ export default {
         const name = ref();
         const email = ref();
         const password = ref();
+        const phone = ref();
         const passwordConfirmation = ref();
         const store = useStore();
 
@@ -38,11 +41,12 @@ export default {
                 name: name.value,
                 email: email.value,
                 password: password.value,
-                password_confirmation: passwordConfirmation.value
+                password_confirmation: passwordConfirmation.value,
+                phone: phone.value
             })
         }
         return {
-            name, email, password, passwordConfirmation, register, store
+            name, email, password, passwordConfirmation, register, store, phone
         }
     }
 }

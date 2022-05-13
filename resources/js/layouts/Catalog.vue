@@ -23,20 +23,40 @@
             </ul>
         </div>
         <div class="catalog__goods">
-            Товары
+            <ul>
+                <li v-for="good in store.goods" :key="good">
+                    Цвет: {{ good.clothe.color }}
+                    Размер: {{ good.clothe.size }}
+                    <img :src="good.clothe.img" alt="Norm">
+                </li>
+            </ul>
         </div>
     </div>
 </template>
 
 <script>
+import {useStore} from "../store/useStore";
+import {onMounted} from "vue";
+
 export default {
-    name: "Catalog"
+    name: "Catalog",
+    setup() {
+        const store = useStore();
+        onMounted(async () => {
+            await store.fetchGoods();
+        })
+
+        return {
+            store,
+        }
+    }
 }
 </script>
 
 <style scoped lang="scss">
 .catalog {
     display: flex;
+
     &__filtration {
         width: 330px;
         margin-right: 30px;

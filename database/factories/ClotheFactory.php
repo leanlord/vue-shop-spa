@@ -21,7 +21,7 @@ class ClotheFactory extends Factory
         return [
             'color' => $this->faker->colorName,
             'size' => strtoupper($this->faker->randomElement(['xl', 'l', 'm', 's', 'xs'])),
-            'img' => 'https://prodota.ru/forum/uploads/monthly_2021_04/pig_162595.png.e238f36d0d6429514a5bdf0dd4e9dc9b.png',
+            'img' => 'https://a.lmcdn.ru/product/M/P/MP002XM085XD_17091779_1_v1_2x.jpg',
             'price' => $this->faker->numberBetween(1000, 5000)
         ];
     }
