@@ -35,10 +35,10 @@
         <div class="header__aside">
             <div class="header__links">
                 <a class="header__link" href="tel:79034655304"
-                >+7 903 465 53 04
+                    >+7 903 465 53 04
                 </a>
                 <router-link class="header__link" to="/account"
-                >Кабинет
+                    >Кабинет
                 </router-link>
             </div>
             <a href="#">
@@ -69,8 +69,8 @@
 </template>
 
 <script>
-import {authStore} from "../store/authStore";
-import {ref} from "vue";
+import { authStore } from "../store/authStore";
+import { ref } from "vue";
 import ModalMobile from "./ModalMobile";
 
 export default {
@@ -83,7 +83,7 @@ export default {
             showModal,
         };
     },
-    components: {ModalMobile},
+    components: { ModalMobile },
 };
 </script>
 
@@ -176,12 +176,12 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
     opacity: 1;
-    transition: opacity .3s;
+    transition: opacity 0.3s;
 }
 
 .fade-enter,
 .fade-leave-to {
     opacity: 0;
-    transition: opacity .3s;
+    transition: opacity 0.3s;
 }
 </style>

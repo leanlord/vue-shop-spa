@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import {userStore} from "../store/userStore";
+import { userStore } from "../store/userStore";
 import axios from "axios";
 import router from "../router";
 

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import {authStore} from "../store/authStore";
+import { authStore } from "../store/authStore";
 
 export default {
     name: "ModalClose",
@@ -11,12 +11,10 @@ export default {
         const store = authStore();
 
         return {
-            store
-        }
-    }
-}
+            store,
+        };
+    },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

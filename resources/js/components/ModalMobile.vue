@@ -20,17 +20,19 @@
                     class="menu__link"
                     :to="item.link"
                     @click="$emit('closeModal')"
-                >{{ item.title }}
-                </router-link
-                >
-                <div v-if="item.id === store.options.length - 1" class="line"></div>
+                    >{{ item.title }}
+                </router-link>
+                <div
+                    v-if="item.id === store.options.length - 1"
+                    class="line"
+                ></div>
             </li>
         </ul>
     </div>
 </template>
 
 <script>
-import {modalMobileStore} from "../store/modalMobileStore";
+import { modalMobileStore } from "../store/modalMobileStore";
 
 export default {
     name: "ModalMobile",

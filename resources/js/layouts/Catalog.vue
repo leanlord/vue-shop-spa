@@ -25,9 +25,8 @@
         <div class="catalog__goods">
             <ul>
                 <li v-for="good in store.goods" :key="good">
-                    Цвет: {{ good.color }}
-                    Размер: {{ good.size }}
-                    <img :src="good.img" alt="Norm" width="100">
+                    Цвет: {{ good.color }} Размер: {{ good.size }}
+                    <img :src="good.img" alt="Norm" width="100" />
                 </li>
             </ul>
         </div>
@@ -35,8 +34,8 @@
 </template>
 
 <script>
-import {authStore} from "../store/authStore";
-import {onMounted} from "vue";
+import { authStore } from "../store/authStore";
+import { onMounted } from "vue";
 
 export default {
     name: "Catalog",
@@ -44,13 +43,13 @@ export default {
         const store = authStore();
         onMounted(async () => {
             await store.fetchGoods();
-        })
+        });
 
         return {
             store,
-        }
-    }
-}
+        };
+    },
+};
 </script>
 
 <style scoped lang="scss">
