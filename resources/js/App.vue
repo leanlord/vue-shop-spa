@@ -1,7 +1,9 @@
 <template>
     <the-header></the-header>
-    <component :is="store.currentModal"></component>
-    <router-view></router-view>
+    <main class="main">
+        <component :is="store.currentModal"></component>
+        <router-view></router-view>
+    </main>
     <the-footer></the-footer>
 </template>
 
@@ -31,4 +33,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.main {
+    flex-grow: 1;
+}
+</style>

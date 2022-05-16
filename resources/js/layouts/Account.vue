@@ -1,20 +1,58 @@
 <template>
-    <p>Ваше имя: {{ store.user.name }}</p>
-    <p>Ваш email: {{ store.user.email }}</p>
-    <p>Телефон: {{ store.user.phone }}</p>
+    <router-link to="/" class="back">
+        <svg
+            width="13"
+            height="23"
+            viewBox="0 0 13 23"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M12.7071 1.08064L12 0.373535L0.686296 11.6872L12 23.001L12.7071 22.2938L2.10051 11.6872L12.7071 1.08064Z"
+                fill="#58595B"
+            />
+        </svg>
+        <span class="back__text"> Назад </span>
+    </router-link>
 
-    <button @click="logout">Выйти</button>
+    <div class="account">
+        <div class="account__panel">
+            <h2 class="account__title">Учетная запись</h2>
+            <ul class="account__list">
+                <li class="account__item">
+                    <a href="#" class="account__link">Персональные данные</a>
+                </li>
+                <li class="account__item">
+                    <a href="#" class="account__link">Мои адреса доставки</a>
+                </li>
+                <li class="account__item">
+                    <a href="#" class="account__link">История заказов</a>
+                </li>
+                <li class="account__item">
+                    <a href="#" class="account__link" @click.prevent="logout"
+                        >Выйти</a
+                    >
+                </li>
+            </ul>
+        </div>
+        <component :is="activeComponent"> </component>
+    </div>
 </template>
 
 <script>
 import { userStore } from "../store/userStore";
 import axios from "axios";
 import router from "../router";
+import AccountInfo from "../components/AccountInfo";
 
 export default {
     name: "Account",
+    components: {
+        AccountInfo,
+    },
     setup() {
         const store = userStore();
+        let activeComponent = "AccountInfo";
         const logout = async () => {
             store.user = null;
             await axios.get("/api/logout");
@@ -23,9 +61,128 @@ export default {
         return {
             store,
             logout,
+            activeComponent,
         };
     },
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+@import "resources/sass/app";
+.back {
+    max-width: 90px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+    border-style: none;
+    background-color: transparent;
+    color: $dark-grey;
+    text-decoration: none;
+    &__text {
+        margin-left: 15px;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 21px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        transform: translateY(1px);
+    }
+}
+.account__exit {
+    padding: 6px 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: white;
+}
+.account {
+    display: flex;
+    &__title {
+        margin-bottom: 35px;
+        font-weight: 300;
+        font-size: 48px;
+        line-height: 60px;
+        color: $dark-grey;
+    }
+    &__panel {
+        margin-right: 100px;
+    }
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #58595b;
+
+        &:last-of-type {
+            border-bottom: 1px solid #58595b;
+        }
+    }
+    &__link {
+        width: 332px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.3em;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        color: $dark-grey;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+            background-color: #e4c5ad;
+        }
+        &:active {
+            background-color: $beige;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .account {
+        &__panel {
+            margin-right: 30px;
+        }
+        &__title {
+            font-size: 35px;
+        }
+    }
+}
+
+@media (max-width: 810px) {
+    .back {
+        display: none;
+    }
+    .account {
+        flex-direction: column;
+        align-items: center;
+        &__title {
+            margin-bottom: 10px;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 21px;
+            color: black;
+        }
+        &__panel {
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+    }
+}
+@media (max-width: 377px) {
+    .account {
+        &__link {
+            width: auto;
+            min-width: 90vw;
+        }
+    }
+}
+</style>

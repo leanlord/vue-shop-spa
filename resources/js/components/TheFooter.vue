@@ -1,7 +1,9 @@
 <template>
-    <div class="footer__wrapper">
-        <p>FOOTER</p>
-    </div>
+    <footer class="footer">
+        <div class="footer__wrapper">
+            <p>FOOTER</p>
+        </div>
+    </footer>
 </template>
 
 <script>
@@ -10,9 +12,9 @@ export default {
 };
 </script>
 
-<style scoped>
-.footer__wrapper {
-    margin: 0 auto;
+<style scoped lang="scss">
+.footer {
+    justify-self: flex-end;
 }
 p {
     text-align: center;

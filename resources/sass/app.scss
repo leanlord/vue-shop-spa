@@ -1,31 +1,37 @@
 // Fonts
 @font-face {
-    font-family: 'Gilroy';
+    font-family: "Gilroy";
     weight: 800;
-    src: url('/fonts/Gilroy-ExtraBold.woff') format('woff');
+    src: url("/fonts/Gilroy-ExtraBold.woff") format("woff");
 }
 @font-face {
-    font-family: 'Gilroy';
+    font-family: "Gilroy";
     weight: 300;
-    src: url('/fonts/Gilroy-Light.woff') format('woff');
+    src: url("/fonts/Gilroy-Light.woff") format("woff");
 }
 
 // Normalize css
-@import 'normalize.css';
+@import "normalize.css";
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Common styles
+* {
+    box-sizing: border-box;
+}
+
 .body {
-    font-family: 'Gilroy', serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Gilroy", serif;
     background-color: $body-bg;
 }
 
 .container {
     max-width: 1390px;
-    padding-right: 25px;
-    padding-left: 25px;
+    padding: 0 25px;
     margin: 0 auto;
 }
 
@@ -33,9 +39,34 @@
     padding: 16px 32px;
     background-color: $dark-grey;
     border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        background-color: #74767b;
+    }
+    &:active {
+        background-color: #46474a;
+    }
 }
 
-ul, ol {
+ul,
+ol {
     margin: 0;
     padding: 0;
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+@media (max-width: 425px) {
+    .container {
+        padding: 0 15px;
+    }
 }

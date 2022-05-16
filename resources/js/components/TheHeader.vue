@@ -37,9 +37,19 @@
                 <a class="header__link" href="tel:79034655304"
                     >+7 903 465 53 04
                 </a>
-                <router-link class="header__link" to="/account"
+                <router-link
+                    v-if="storeUser.isAuth"
+                    class="header__link"
+                    to="/account"
                     >Кабинет
                 </router-link>
+                <a
+                    v-else
+                    href="#"
+                    @click="storeAuth.currentModal = 'modalAuth'"
+                    class="header__link"
+                    >Войти</a
+                >
             </div>
             <a href="#">
                 <svg
@@ -69,6 +79,7 @@
 </template>
 
 <script>
+import { userStore } from "../store/userStore";
 import { authStore } from "../store/authStore";
 import { ref } from "vue";
 import ModalMobile from "./ModalMobile";
@@ -76,11 +87,13 @@ import ModalMobile from "./ModalMobile";
 export default {
     name: "TheHeader",
     setup() {
-        const store = authStore();
         let showModal = ref(false);
+        const storeUser = userStore();
+        const storeAuth = authStore();
         return {
-            store,
             showModal,
+            storeUser,
+            storeAuth,
         };
     },
     components: { ModalMobile },

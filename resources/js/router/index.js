@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { userStore } from "../store/userStore";
 import { authStore } from "../store/authStore";
-import TheFooter from "../components/TheFooter";
+import Catalog from "../layouts/Catalog";
 
 const routes = [
     {
         path: "/",
         name: "Home",
-        component: TheFooter,
+        component: Catalog,
         meta: {
             auth: false,
         },
