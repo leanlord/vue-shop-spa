@@ -10,6 +10,9 @@
     src: url('/fonts/Gilroy-Light.woff') format('woff');
 }
 
+// Normalize css
+@import 'normalize.css';
+
 // Variables
 @import 'variables';
 
@@ -24,4 +27,15 @@
     padding-right: 25px;
     padding-left: 25px;
     margin: 0 auto;
+}
+
+.btn {
+    padding: 16px 32px;
+    background-color: $dark-grey;
+    border: none;
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
 }
