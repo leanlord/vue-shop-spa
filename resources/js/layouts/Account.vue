@@ -1,22 +1,31 @@
 <template>
-    Test account, name: {{ name }}
+    <p>Ваше имя: {{ store.user.name }}</p>
+    <p>Ваш email: {{ store.user.email }}</p>
+    <p>Телефон: {{ store.user.phone }}</p>
+
+    <button @click="logout">Выйти</button>
 </template>
 
 <script>
-import {useStore} from "../store/useStore";
+import {userStore} from "../store/userStore";
+import axios from "axios";
+import router from "../router";
 
 export default {
     name: "Account",
     setup() {
-        const {name} = useStore();
-
+        const store = userStore();
+        const logout = async () => {
+            store.user = null;
+            await axios.get("/api/logout");
+            await router.push("/");
+        };
         return {
-            name
-        }
-    }
-}
+            store,
+            logout,
+        };
+    },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -4,16 +4,14 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import { createApp } from "vue";
+import {createApp} from "vue";
 import App from "./App.vue";
 import router from "./router";
 import {createPinia} from "pinia";
+
 require("./bootstrap");
 const app = createApp(App);
-app
-    .use(router)
-    .use(createPinia())
-    .mount("#app");
+app.use(router).use(createPinia()).mount("#app");
 
 /**
  * The following block of code may be used to automatically register your

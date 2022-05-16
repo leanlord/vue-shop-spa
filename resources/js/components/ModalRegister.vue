@@ -22,7 +22,7 @@
 <script>
 import {ref} from "vue";
 import axios from "axios";
-import {useStore} from "../store/useStore";
+import {authStore} from "../store/authStore";
 import ModalClose from "./ModalClose";
 
 export default {
@@ -34,7 +34,7 @@ export default {
         const password = ref();
         const phone = ref();
         const passwordConfirmation = ref();
-        const store = useStore();
+        const store = authStore();
 
         const register = async () => {
             await axios.post('/api/register', {

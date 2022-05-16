@@ -3,12 +3,12 @@
 </template>
 
 <script>
-import {useStore} from "../store/useStore";
+import {authStore} from "../store/authStore";
 
 export default {
     name: "ModalClose",
     setup() {
-        const store = useStore();
+        const store = authStore();
 
         return {
             store

@@ -22,15 +22,16 @@
 
 <script>
 import {ref} from "vue";
-import axios from "axios";
-import {useStore} from "../store/useStore";
+import {authStore} from "../store/authStore";
 import ModalClose from "./ModalClose";
+import axios from "axios";
+import router from "../router";
 
 export default {
     name: "ModalAuth",
     components: {ModalClose},
     setup() {
-        const store = useStore();
+        const store = authStore();
         const email = ref();
         const password = ref();
         const login = async () => {
@@ -38,11 +39,10 @@ export default {
                 email: email.value,
                 password: password.value,
             })
+            await router.push('/account')
         }
-
-
         return {
-            email, password, login, store
+            email, password, store, login
         }
     }
 }

@@ -25,9 +25,9 @@
         <div class="catalog__goods">
             <ul>
                 <li v-for="good in store.goods" :key="good">
-                    Цвет: {{ good.clothe.color }}
-                    Размер: {{ good.clothe.size }}
-                    <img :src="good.clothe.img" alt="Norm">
+                    Цвет: {{ good.color }}
+                    Размер: {{ good.size }}
+                    <img :src="good.img" alt="Norm" width="100">
                 </li>
             </ul>
         </div>
@@ -35,13 +35,13 @@
 </template>
 
 <script>
-import {useStore} from "../store/useStore";
+import {authStore} from "../store/authStore";
 import {onMounted} from "vue";
 
 export default {
     name: "Catalog",
     setup() {
-        const store = useStore();
+        const store = authStore();
         onMounted(async () => {
             await store.fetchGoods();
         })

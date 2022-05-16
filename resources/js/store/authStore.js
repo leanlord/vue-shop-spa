@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
+import axios from "axios";
 
-export const useStore = defineStore("main", {
-    name: "Test",
+export const authStore = defineStore("main", {
     state: () => {
         return {
             currentModal: "",
@@ -10,9 +10,11 @@ export const useStore = defineStore("main", {
     },
     actions: {
         async fetchGoods() {
-            const {data: {
-                data: { ...options }
-            }} = await axios.get('/api/card');
+            const {
+                data: {
+                    data: { ...options },
+                },
+            } = await axios.get("/api/clothes");
             this.goods = options;
         },
     },
