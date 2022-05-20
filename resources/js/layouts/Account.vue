@@ -14,7 +14,6 @@
         </svg>
         <span class="back__text"> Назад </span>
     </router-link>
-
     <div class="account">
         <div class="account__panel">
             <h2 class="account__title">Учетная запись</h2>

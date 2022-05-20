@@ -16,6 +16,9 @@
 // Variables
 @import "variables";
 
+// Styles
+@import "form";
+
 // Common styles
 * {
     box-sizing: border-box;
@@ -26,7 +29,6 @@
     flex-direction: column;
     min-height: 100vh;
     font-family: "Gilroy", serif;
-    background-color: $body-bg;
 }
 
 .container {
@@ -62,6 +64,10 @@ h3,
 h4,
 h5,
 h6 {
+    margin: 0;
+}
+
+p {
     margin: 0;
 }
 

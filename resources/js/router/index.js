@@ -47,12 +47,9 @@ router.beforeEach(async (to, from, next) => {
             console.log(e);
         } finally {
             if (store.isAuth) {
-                console.log("true");
-                storeAuth.currentModal = "";
                 next();
             } else {
-                console.log("false");
-                storeAuth.currentModal = "modalAuth";
+                storeAuth.showModal = true;
             }
         }
     } else {
@@ -60,4 +57,9 @@ router.beforeEach(async (to, from, next) => {
     }
 });
 
+router.afterEach((to, from) => {
+    const storeAuth = authStore();
+    storeAuth.showModal = false;
+    storeAuth.showMobileModal = false;
+});
 export default router;

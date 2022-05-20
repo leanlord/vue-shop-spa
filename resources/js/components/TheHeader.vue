@@ -6,7 +6,10 @@
             <a class="nav__link" href="#">Контакты</a>
         </nav>
         <div class="burger">
-            <button class="burger__button" @click="showModal = !showModal">
+            <button
+                class="burger__button"
+                @click="showMobileModal = !showMobileModal"
+            >
                 <svg
                     fill="none"
                     height="12"
@@ -37,19 +40,9 @@
                 <a class="header__link" href="tel:79034655304"
                     >+7 903 465 53 04
                 </a>
-                <router-link
-                    v-if="storeUser.isAuth"
-                    class="header__link"
-                    to="/account"
-                    >Кабинет
+                <router-link class="header__link" to="/account"
+                    >{{ isAuth ? "Кабинет" : "Войти" }}
                 </router-link>
-                <a
-                    v-else
-                    href="#"
-                    @click="storeAuth.currentModal = 'modalAuth'"
-                    class="header__link"
-                    >Войти</a
-                >
             </div>
             <a href="#">
                 <svg
@@ -67,33 +60,32 @@
             </a>
         </div>
     </header>
-    <transition name="fade" appear>
-        <modal-mobile
-            v-if="showModal"
-            @close-modal="showModal = false"
-            @scroll.prevent
-            @touchmove.prevent
-            @wheel.prevent
-        ></modal-mobile>
-    </transition>
+    <modal-mobile
+        v-if="showMobileModal"
+        @close-modal="showMobileModal = false"
+        @scroll.prevent
+        @touchmove.prevent
+        @wheel.prevent
+    ></modal-mobile>
 </template>
 
 <script>
 import { userStore } from "../store/userStore";
 import { authStore } from "../store/authStore";
-import { ref } from "vue";
 import ModalMobile from "./ModalMobile";
+import { storeToRefs } from "pinia";
 
 export default {
     name: "TheHeader",
+    emits: ["showModal", "closeModal"],
     setup() {
-        let showModal = ref(false);
         const storeUser = userStore();
         const storeAuth = authStore();
+        const { isAuth } = storeToRefs(storeUser);
+        const { showMobileModal } = storeToRefs(storeAuth);
         return {
-            showModal,
-            storeUser,
-            storeAuth,
+            isAuth,
+            showMobileModal,
         };
     },
     components: { ModalMobile },

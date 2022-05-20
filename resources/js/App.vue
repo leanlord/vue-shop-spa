@@ -1,7 +1,7 @@
 <template>
     <the-header></the-header>
     <main class="main">
-        <component :is="store.currentModal"></component>
+        <modal-auth v-if="store.showModal"></modal-auth>
         <router-view></router-view>
     </main>
     <the-footer></the-footer>
@@ -10,7 +10,6 @@
 <script>
 import TheHeader from "./components/TheHeader";
 import ModalAuth from "./components/ModalAuth";
-import ModalRegister from "./components/ModalRegister";
 import { authStore } from "./store/authStore";
 import TheFooter from "./components/TheFooter";
 import ModalMobile from "./components/ModalMobile";
@@ -28,7 +27,6 @@ export default {
         TheFooter,
         TheHeader,
         ModalAuth,
-        ModalRegister,
     },
 };
 </script>

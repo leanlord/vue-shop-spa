@@ -4,7 +4,7 @@
 /public/css
 /public/js
 /public/assets
-/punlic/fonts
+/public/fonts
 /storage/*.key
 /vendor
 .env

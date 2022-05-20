@@ -14,33 +14,48 @@
             />
         </svg>
         <ul class="menu__list">
-            <li v-for="item in store.options" :key="item" class="menu__item">
+            <li class="menu__item">
                 <div class="line"></div>
-                <router-link
-                    class="menu__link"
-                    :to="item.link"
-                    @click="$emit('closeModal')"
-                    >{{ item.title }}
+                <router-link class="menu__link" to="/catalog"
+                    >Мужчинам
                 </router-link>
-                <div
-                    v-if="item.id === store.options.length - 1"
-                    class="line"
-                ></div>
+            </li>
+            <li class="menu__item">
+                <div class="line"></div>
+                <router-link class="menu__link" to="/catalog"
+                    >Женщинам
+                </router-link>
+            </li>
+            <li class="menu__item">
+                <div class="line"></div>
+                <router-link class="menu__link" to="/">Контакты </router-link>
+            </li>
+            <li class="menu__item">
+                <div class="line"></div>
+                <router-link class="menu__link" to="/account"
+                    >{{ isAuth ? "Кабинет" : "Войти" }}
+                </router-link>
+            </li>
+            <li class="menu__item">
+                <div class="line"></div>
+                <router-link class="menu__link" to="/">Про бренд </router-link>
+                <div class="line"></div>
             </li>
         </ul>
     </div>
 </template>
 
 <script>
-import { modalMobileStore } from "../store/modalMobileStore";
+import { userStore } from "../store/userStore";
 
 export default {
     name: "ModalMobile",
     emits: ["closeModal"],
     setup() {
-        const store = modalMobileStore();
+        const storeUser = userStore();
+        const { isAuth } = storeUser;
         return {
-            store,
+            isAuth,
         };
     },
 };

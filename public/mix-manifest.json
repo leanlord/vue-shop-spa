@@ -1,6 +1,6 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/fonts/Gilroy-ExtraBold.woff": "/fonts/Gilroy-ExtraBold.woff",
-    "/fonts/Gilroy-Light.woff": "/fonts/Gilroy-Light.woff"
+    "/js/app.js": "/js/app.js?id=2780cf795a97f78ba694c45e16ec11d2",
+    "/css/app.css": "/css/app.css?id=dc796e8a2341719b3e3b4b9d2b483f9c",
+    "/fonts/Gilroy-ExtraBold.woff": "/fonts/Gilroy-ExtraBold.woff?id=5fc5613e082ade9de706e9482c272a37",
+    "/fonts/Gilroy-Light.woff": "/fonts/Gilroy-Light.woff?id=72da3ad44d474a5b2b7b61a13e27bf60"
 }

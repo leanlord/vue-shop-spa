@@ -1,6 +1,10 @@
 <template>
     <div class="account__info">
-        <form class="form" @submit.prevent="changeData">
+        <form
+            class="form account__form"
+            id="saveForm"
+            @submit.prevent="changeData"
+        >
             <div class="form__element">
                 <label for="name" class="form__label"> Ваше имя </label>
                 <input
@@ -45,7 +49,9 @@
                 />
             </div>
         </form>
-        <button type="submit" class="btn form__button">Сохранить</button>
+        <button form="saveForm" type="submit" class="btn form__button">
+            Сохранить
+        </button>
     </div>
 </template>
 
@@ -85,56 +91,9 @@ export default {
 
 <style scoped lang="scss">
 @import "resources/sass/app";
-.form {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 686px;
-    &__button {
-        font-weight: 300;
-        font-size: 14px;
-        line-height: 18px;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        color: white;
-    }
-    &__element {
-        min-width: 332px;
-        padding-bottom: 20px;
-        display: flex;
-        flex-direction: column;
-    }
-    &__label {
-        font-weight: 300;
-        font-size: 16px;
-        line-height: 24px;
-        color: #58595b;
-    }
-    &__input {
-        padding-top: 15px;
-        padding-bottom: 15px;
-        border: 1px solid #dfdbd4;
-        background-color: #fff;
-        color: #d3a785;
-        ::placeholder {
-            color: #d3a785;
-        }
-        :focus {
-            outline: none;
-        }
-    }
-}
-@media (max-width: 720px) {
-    .form {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 377px) {
-    .form {
-        &__element {
-            min-width: 90vw;
-        }
+.account {
+    &__form {
+        max-width: 686px;
     }
 }
 </style>

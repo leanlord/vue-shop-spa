@@ -4,7 +4,8 @@ import axios from "axios";
 export const authStore = defineStore("main", {
     state: () => {
         return {
-            currentModal: "",
+            showModal: false,
+            showMobileModal: false,
             goods: {},
         };
     },
@@ -16,6 +17,14 @@ export const authStore = defineStore("main", {
                 },
             } = await axios.get("/api/clothes");
             this.goods = options;
+        },
+        openModal() {
+            this.showModal = true;
+            document.body.style.overflow = "hidden";
+        },
+        closeModal() {
+            this.showModal = false;
+            document.body.style.overflow = "auto";
         },
     },
     getters: {
