@@ -23,54 +23,90 @@
             </ul>
         </div>
         <div class="catalog__goods">
-            <ul>
-                <li v-for="good in store.goods" :key="good">
-                    Цвет: {{ good.color }} Размер: {{ good.size }}
-                    <img :src="good.img" alt="Norm" width="100" />
-                </li>
-            </ul>
+            <catalog-product
+                v-for="good in goods"
+                :key="good"
+                :src="good.img"
+                :price="good.price"
+            ></catalog-product>
         </div>
     </div>
 </template>
 
 <script>
 import { authStore } from "../store/authStore";
+import CatalogProduct from "../components/CatalogProduct";
 import { onMounted } from "vue";
+import { storeToRefs } from "pinia";
 
 export default {
     name: "Catalog",
     setup() {
         const store = authStore();
+        const { goods } = storeToRefs(store);
         onMounted(async () => {
             await store.fetchGoods();
         });
 
         return {
-            store,
+            goods,
         };
+    },
+    components: {
+        CatalogProduct,
     },
 };
 </script>
 
 <style scoped lang="scss">
+@import "resources/sass/app";
 .catalog {
     display: flex;
 
     &__filtration {
+        margin-right: 25px;
         width: 330px;
-        margin-right: 30px;
     }
 
     &__list {
         display: flex;
         flex-direction: column;
-        justify-items: center;
         align-items: center;
     }
 
     &__item {
+        display: flex;
+
+        border-top: 1px solid #58595b;
+
+        &:last-of-type {
+            border-bottom: 1px solid #58595b;
+        }
+    }
+
+    &__link {
+        width: 322px;
         padding-top: 10px;
         padding-bottom: 10px;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.3em;
+        text-decoration: none;
+        text-align: center;
+        color: $dark-grey;
+        &:hover {
+            background-color: #e4c5ad;
+        }
+        &:active {
+            background-color: $beige;
+        }
+    }
+
+    &__goods {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
 }
 </style>
