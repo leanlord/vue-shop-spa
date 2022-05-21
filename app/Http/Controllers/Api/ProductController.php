@@ -40,6 +40,7 @@
         public function store(): JsonResponse {
             return response()->json([
                 'data' => Product::create([
+                    'size' => request()->input('size'),
                     'user_id' => request()->user()->id,
                     'clothe_id' => request()->input('clothe_id'),
                 ])

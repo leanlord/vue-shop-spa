@@ -23,6 +23,7 @@ class ProductFactory extends Factory
         return [
             'user_id' => $this->faker->numberBetween(1, User::count()),
             'clothe_id' => $this->faker->numberBetween(1, Clothe::count()),
+            'size' => strtoupper($this->faker->randomElement(['xl', 'l', 'm', 's', 'xs'])),
         ];
     }
 }

@@ -2,20 +2,22 @@
 
     namespace App\Http\Resources;
 
+    use Illuminate\Http\Request;
     use Illuminate\Http\Resources\Json\JsonResource;
+    use JetBrains\PhpStorm\ArrayShape;
 
     class ClotheResource extends JsonResource
     {
         /**
          * Transform the resource into an array.
          *
-         * @param \Illuminate\Http\Request $request
-         * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+         * @param Request $request
+         * @return array
          */
-        public function toArray($request) {
+        #[ArrayShape(['color' => "mixed", 'img' => "mixed", 'price' => "string"])]
+        public function toArray($request): array {
             return [
                 'color' => $this->color,
-                'size' => $this->size,
                 'img' => $this->img,
                 'price' => number_format($this->price, 0, ',', ' '),
             ];

@@ -35,6 +35,7 @@
         protected $fillable = [
             'user_id',
             'clothe_id',
+            'size',
         ];
 
         public function clothe(): BelongsTo {

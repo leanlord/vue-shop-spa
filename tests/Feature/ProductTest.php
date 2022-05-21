@@ -20,9 +20,14 @@
 
             $this->post(route('products.store'), [
                 'clothe_id' => 1,
+                'size' => 'XXL'
             ])->assertStatus(200);
 
-            $this->assertDatabaseHas('products', ['user_id' => $user->id, 'clothe_id' => 1]);
+            $this->assertDatabaseHas('products', [
+                'user_id' => $user->id,
+                'clothe_id' => 1,
+                'size' => 'XXL'
+            ]);
         }
 
         /**
@@ -46,16 +51,18 @@
             $this->seed();
             $this->actingAs(User::first());
 
+            $size = 'XL';
             $id = Product::create([
                 'user_id' => 1,
                 'clothe_id' => 10,
+                'size' => $size,
             ])->id;
 
             $this->post(route('products.destroy', ['product' => $id]), [
-                '_method' => 'delete'
+                '_method' => 'delete',
             ])->assertStatus(204);
 
-            $this->assertDatabaseMissing('products', compact('id'));
+            $this->assertDatabaseMissing('products', compact('id', 'size'));
         }
 
         public function test_user_can_not_delete_other_people_goods() {
@@ -66,10 +73,11 @@
             $id = Product::create([
                 'user_id' => 5,
                 'clothe_id' => 10,
+                'size' => 'L',
             ])->id;
 
             $this->post(route('products.destroy', ['product' => $id]), [
-               '_method' => 'delete'
+                '_method' => 'delete',
             ])->assertStatus(403);
         }
     }
