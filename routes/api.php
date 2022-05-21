@@ -33,7 +33,7 @@
     });
 
     Route::apiResource('clothes', ClothesController::class, [
-        'except' => ['update', 'destroy', 'store',],
+        'except' => ['update', 'destroy'],
     ]);
 
     Route::post('/register', [AuthController::class, 'register'])

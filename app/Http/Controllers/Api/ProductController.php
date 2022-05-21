@@ -3,13 +3,9 @@
     namespace App\Http\Controllers\Api;
 
     use App\Http\Controllers\Controller;
-    use App\Http\Middleware\CanDeleteProduct;
-    use App\Http\Requests\DeleteProductRequest;
     use App\Http\Resources\ProductResource;
     use App\Models\Product;
     use Illuminate\Http\JsonResponse;
-    use Illuminate\Http\Request;
-    use function response;
 
     class ProductController extends Controller
     {
@@ -27,7 +23,7 @@
         public function index(): JsonResponse {
             return response()->json([
                 'data' => ProductResource::collection(
-                    \request()->user()->products()->get()->load('clothe')
+                    request()->user()->products()->get()->load('clothe')
                 ),
             ]);
         }
