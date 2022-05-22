@@ -35,7 +35,7 @@
         }
 
         public function store() {
-            $clothe = Clothe::create(request()->only(['color', 'img', 'price']));
+            $clothe = Clothe::create(request()->only(['id', 'color', 'img', 'price']));
             return response()->json([
                 'data' => new ClotheResource($clothe),
             ]);

@@ -1,4 +1,8 @@
 <template>
+    <modal-goods
+        v-if="showModal"
+        @close-modal="showModal = false"
+    ></modal-goods>
     <div class="catalog">
         <div class="catalog__filtration">
             <ul class="catalog__list">
@@ -24,35 +28,62 @@
         </div>
         <div class="catalog__goods">
             <catalog-product
+                @add-product="addProduct"
                 v-for="good in goods"
                 :key="good"
                 :src="good.img"
                 :price="good.price"
+                :id="good.id"
             ></catalog-product>
         </div>
     </div>
 </template>
 
 <script>
-import { authStore } from "../store/authStore";
 import CatalogProduct from "../components/CatalogProduct";
-import { onMounted } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { storeToRefs } from "pinia";
+import ModalGoods from "../components/ModalGoods";
+import { goodsStore } from "../store/goodsStore";
+import axios from "axios";
+import { userStore } from "../store/userStore";
 
 export default {
     name: "Catalog",
     setup() {
-        const store = authStore();
+        const store = goodsStore();
         const { goods } = storeToRefs(store);
+        const storeUser = userStore();
+        let showModal = ref(false);
+        const addProduct = async (clotheSize, id) => {
+            if (storeUser.isAuth) {
+                await axios.post("/api/products", {
+                    size: clotheSize,
+                    clothe_id: id,
+                });
+                showModal.value = true;
+            } else {
+                console.log("not auth");
+            }
+        };
+
+        watch(showModal, () => {
+            showModal.value
+                ? (document.body.style.overflow = "hidden")
+                : (document.body.style.overflow = "auto");
+        });
         onMounted(async () => {
             await store.fetchGoods();
         });
 
         return {
             goods,
+            showModal,
+            addProduct,
         };
     },
     components: {
+        ModalGoods,
         CatalogProduct,
     },
 };

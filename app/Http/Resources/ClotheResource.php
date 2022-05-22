@@ -14,9 +14,10 @@
          * @param Request $request
          * @return array
          */
-        #[ArrayShape(['color' => "mixed", 'img' => "mixed", 'price' => "string"])]
+        #[ArrayShape(['id' => "number", 'color' => "mixed", 'img' => "mixed", 'price' => "string"])]
         public function toArray($request): array {
             return [
+                'id' => $this->id,
                 'color' => $this->color,
                 'img' => $this->img,
                 'price' => number_format($this->price, 0, ',', ' '),

@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { userStore } from "../store/userStore";
-import { authStore } from "../store/authStore";
+import { modalStore } from "../store/modalStore";
 import Catalog from "../layouts/Catalog";
 
 const routes = [
@@ -38,7 +38,7 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
     const requiredAuth = to.meta.auth;
     const store = userStore();
-    const storeAuth = authStore();
+    const storeAuth = modalStore();
 
     if (requiredAuth) {
         try {
@@ -49,7 +49,7 @@ router.beforeEach(async (to, from, next) => {
             if (store.isAuth) {
                 next();
             } else {
-                storeAuth.showModal = true;
+                storeAuth.openModal();
             }
         }
     } else {
@@ -58,8 +58,8 @@ router.beforeEach(async (to, from, next) => {
 });
 
 router.afterEach((to, from) => {
-    const storeAuth = authStore();
-    storeAuth.showModal = false;
+    const storeAuth = modalStore();
+    storeAuth.closeModal();
     storeAuth.showMobileModal = false;
 });
 export default router;

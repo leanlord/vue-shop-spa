@@ -71,16 +71,17 @@
 
 <script>
 import { userStore } from "../store/userStore";
-import { authStore } from "../store/authStore";
+import { modalStore } from "../store/modalStore";
 import ModalMobile from "./ModalMobile";
 import { storeToRefs } from "pinia";
+import { onMounted } from "vue";
 
 export default {
     name: "TheHeader",
     emits: ["showModal", "closeModal"],
     setup() {
         const storeUser = userStore();
-        const storeAuth = authStore();
+        const storeAuth = modalStore();
         const { isAuth } = storeToRefs(storeUser);
         const { showMobileModal } = storeToRefs(storeAuth);
         return {

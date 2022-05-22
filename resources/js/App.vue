@@ -10,14 +10,20 @@
 <script>
 import TheHeader from "./components/TheHeader";
 import ModalAuth from "./components/ModalAuth";
-import { authStore } from "./store/authStore";
+import { modalStore } from "./store/modalStore";
 import TheFooter from "./components/TheFooter";
 import ModalMobile from "./components/ModalMobile";
+import { onMounted } from "vue";
+import { userStore } from "./store/userStore";
 
 export default {
     name: "App",
     setup() {
-        const store = authStore();
+        const store = modalStore();
+        const storeUser = userStore();
+        onMounted(() => {
+            storeUser.fetchUser();
+        });
         return {
             store,
         };
