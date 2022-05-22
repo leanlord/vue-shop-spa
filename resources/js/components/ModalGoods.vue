@@ -5,7 +5,9 @@
             <div class="modal__content">
                 <p class="modal__title">Спасибо!</p>
                 <p class="modal__text">Товар успешно добавлен в корзину</p>
-                <button class="btn modal__btn">Оформить заказ</button>
+                <router-link to="/cart">
+                    <button class="btn modal__btn">Оформить заказ</button>
+                </router-link>
                 <a
                     href="#"
                     @click.prevent="$emit('closeModal')"

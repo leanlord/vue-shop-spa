@@ -19,6 +19,7 @@
 // Styles
 @import "form";
 @import "modal";
+@import "back";
 
 // Common styles
 * {
@@ -44,6 +45,8 @@
     border: none;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
     color: white;
     &:hover {
         background-color: #74767b;

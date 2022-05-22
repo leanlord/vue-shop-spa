@@ -37,6 +37,9 @@
         </div>
         <div class="header__aside">
             <div class="header__links">
+                <router-link v-if="isAdmin" to="/admin" class="header__link">
+                    Админ-панель
+                </router-link>
                 <a class="header__link" href="tel:79034655304"
                     >+7 903 465 53 04
                 </a>
@@ -44,7 +47,7 @@
                     >{{ isAuth ? "Кабинет" : "Войти" }}
                 </router-link>
             </div>
-            <a href="#">
+            <router-link to="/cart">
                 <svg
                     fill="none"
                     height="17"
@@ -57,7 +60,7 @@
                         fill="#58595B"
                     />
                 </svg>
-            </a>
+            </router-link>
         </div>
     </header>
     <modal-mobile
@@ -82,11 +85,12 @@ export default {
     setup() {
         const storeUser = userStore();
         const storeAuth = modalStore();
-        const { isAuth } = storeToRefs(storeUser);
+        const { isAuth, isAdmin } = storeToRefs(storeUser);
         const { showMobileModal } = storeToRefs(storeAuth);
         return {
             isAuth,
             showMobileModal,
+            isAdmin,
         };
     },
     components: { ModalMobile },

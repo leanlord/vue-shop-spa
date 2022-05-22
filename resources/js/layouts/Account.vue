@@ -1,19 +1,5 @@
 <template>
-    <router-link to="/" class="back">
-        <svg
-            width="13"
-            height="23"
-            viewBox="0 0 13 23"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-                d="M12.7071 1.08064L12 0.373535L0.686296 11.6872L12 23.001L12.7071 22.2938L2.10051 11.6872L12.7071 1.08064Z"
-                fill="#58595B"
-            />
-        </svg>
-        <span class="back__text"> Назад </span>
-    </router-link>
+    <back-button></back-button>
     <div class="account">
         <div class="account__panel">
             <h2 class="account__title">Учетная запись</h2>
@@ -43,10 +29,12 @@ import { userStore } from "../store/userStore";
 import axios from "axios";
 import router from "../router";
 import AccountInfo from "../components/AccountInfo";
+import BackButton from "../components/BackButton";
 
 export default {
     name: "Account",
     components: {
+        BackButton,
         AccountInfo,
     },
     setup() {
@@ -68,26 +56,6 @@ export default {
 
 <style scoped lang="scss">
 @import "resources/sass/app";
-.back {
-    max-width: 90px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 35px;
-    border-style: none;
-    background-color: transparent;
-    color: $dark-grey;
-    text-decoration: none;
-    &__text {
-        margin-left: 15px;
-        font-style: normal;
-        font-weight: 300;
-        font-size: 12px;
-        line-height: 21px;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        transform: translateY(1px);
-    }
-}
 .account__exit {
     padding: 6px 12px;
     text-transform: uppercase;

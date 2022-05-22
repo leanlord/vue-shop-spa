@@ -6,12 +6,15 @@ export const userStore = defineStore("user", {
         return {
             user: null,
             logout: null,
+            isAdmin: 0,
         };
     },
     actions: {
         async fetchUser() {
             const { data } = await axios.get("/api/account");
             this.user = data;
+            const { is_admin } = data;
+            this.isAdmin = is_admin;
         },
     },
     getters: {
