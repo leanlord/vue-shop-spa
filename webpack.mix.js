@@ -19,5 +19,4 @@ mix.js("resources/js/app.js", "public/js")
         proxy: "coys.test",
     })
     .copy('resources/fonts', 'public/fonts')
-    .copy('resources/assets', 'public/assets')
-    .version();
+    .copy('resources/assets', 'public/assets');
