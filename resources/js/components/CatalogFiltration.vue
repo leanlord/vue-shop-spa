@@ -1,13 +1,9 @@
-<template>
-
-</template>
+<template></template>
 
 <script>
 export default {
-    name: "CatalogFiltration"
-}
+    name: "CatalogFiltration",
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

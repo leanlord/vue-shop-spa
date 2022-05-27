@@ -92,7 +92,7 @@ export default {
 };
 </script>
 
-    <style lang="scss">
+<style lang="scss">
 @import "resources/sass/app";
 .catalog {
     display: flex;
@@ -153,6 +153,5 @@ export default {
             justify-content: center;
         }
     }
-
 }
 </style>
