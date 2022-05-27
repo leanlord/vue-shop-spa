@@ -83,6 +83,7 @@ export default {
         color: $dark-grey;
     }
     &__image {
+        margin-bottom: auto;
         width: 400px;
     }
     &__btn {
