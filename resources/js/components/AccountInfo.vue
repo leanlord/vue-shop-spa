@@ -14,6 +14,7 @@
                     v-model="name"
                     placeholder="Ваше имя"
                     class="form__input"
+                    tabindex="1"
                 />
             </div>
             <div class="form__element">

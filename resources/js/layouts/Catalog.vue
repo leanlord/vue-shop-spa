@@ -34,6 +34,7 @@
                 :src="good.img"
                 :price="good.price"
                 :id="good.id"
+                :color="good.color"
             ></catalog-product>
         </div>
     </div>

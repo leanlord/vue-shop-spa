@@ -1,7 +1,8 @@
 <template>
     <li class="product">
         <img class="product__image" :src="src" alt="Фото товара" />
-        <p class="product__name">Платье-рубашка</p>
+        <p class="product__name">Джинсовка</p>
+        <p class="product__name">{{ color }}</p>
         <p class="product__price">{{ price }}$</p>
         <ul class="product__list">
             <li
@@ -34,7 +35,7 @@ import { ref } from "vue";
 
 export default {
     name: "CatalogGood",
-    props: ["src", "name", "price", "id"],
+    props: ["src", "name", "price", "id", "color"],
     emits: ["addProduct"],
     setup() {
         const store = goodsStore();
