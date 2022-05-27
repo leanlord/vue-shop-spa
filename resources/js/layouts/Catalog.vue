@@ -48,6 +48,7 @@ import ModalGoods from "../components/ModalGoods";
 import { goodsStore } from "../store/goodsStore";
 import axios from "axios";
 import { userStore } from "../store/userStore";
+import CatalogFiltration from "../components/CatalogFiltration";
 
 export default {
     name: "Catalog",
@@ -84,13 +85,14 @@ export default {
         };
     },
     components: {
+        CatalogFiltration,
         ModalGoods,
         CatalogProduct,
     },
 };
 </script>
 
-<style scoped lang="scss">
+    <style lang="scss">
 @import "resources/sass/app";
 .catalog {
     display: flex;
@@ -140,5 +142,17 @@ export default {
         justify-content: space-between;
         flex-wrap: wrap;
     }
+}
+
+@media (max-width: 834px) {
+    .catalog {
+        &__filtration {
+            display: none;
+        }
+        &__goods {
+            justify-content: center;
+        }
+    }
+
 }
 </style>

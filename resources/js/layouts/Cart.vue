@@ -158,4 +158,20 @@ export default {
     width: 100%;
     border-top: 1px solid #58595b;
 }
+@media (max-width: 1231px) {
+    .cart {
+        flex-direction: column;
+        align-items: center;
+        &__products {
+            min-width: 686px;
+        }
+    }
+}
+@media (max-width: 740px) {
+    .cart {
+        &__products {
+            min-width: auto;
+        }
+    }
+}
 </style>
