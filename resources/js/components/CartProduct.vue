@@ -120,9 +120,10 @@ export default {
     &__img {
         width: 120px;
         height: 180px;
+        margin-right: 10px;
+        object-fit: cover;
     }
     &__content {
-        min-width: 293px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;

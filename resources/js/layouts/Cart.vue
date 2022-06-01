@@ -169,8 +169,11 @@ export default {
 }
 @media (max-width: 740px) {
     .cart {
+        &__order {
+            min-width: 90vw;
+        }
         &__products {
-            min-width: auto;
+            min-width: 90vw;
         }
     }
 }
