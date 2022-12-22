@@ -15,13 +15,12 @@
          * @param Request $request
          * @return array
          */
-        #[ArrayShape(['id' => "mixed", 'created_at' => "mixed", 'clothe' => "\App\Http\Resources\ClotheResource", 'size' => "mixed"])]
+        #[ArrayShape(['id' => "mixed", 'created_at' => "mixed", 'clothe' => "\App\Http\Resources\ClotheResource"])]
         public function toArray($request): array {
             return [
                 'id' => $this->id,
                 'created_at' => $this->created_at,
-                'clothe' => new HouseholdResource($this->clothe),
-                'size' => $this->size,
+                'clothe' => new JewelryResource($this->clothe),
             ];
         }
     }

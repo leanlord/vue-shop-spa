@@ -2,7 +2,7 @@
 
     namespace App\Providers;
 
-    use App\Models\Household;
+    use App\Models\Jewelry;
     use App\Models\Product;
     use Illuminate\Support\Facades\Route;
     use Illuminate\Support\ServiceProvider;
@@ -24,7 +24,7 @@
          * @return void
          */
         public function boot(): void {
-            Route::model('clothes', Household::class);
+            Route::model('clothes', Jewelry::class);
             Route::model('products', Product::class);
         }
     }

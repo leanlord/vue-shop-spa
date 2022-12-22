@@ -11,11 +11,7 @@
          * @return void
          */
         public function up() {
-            Schema::dropColumns('households', 'size');
-
-            Schema::table('products', function (Blueprint $blueprint) {
-                $blueprint->string('size')->default('M');
-            });
+            Schema::dropColumns('jewelry', 'size');
         }
 
         /**
@@ -24,10 +20,8 @@
          * @return void
          */
         public function down() {
-            Schema::table('households', function (Blueprint $blueprint) {
+            Schema::table('jewelry', function (Blueprint $blueprint) {
                 $blueprint->string('size')->default('M');
             });
-
-            Schema::dropColumns('products', 'size');
         }
     };

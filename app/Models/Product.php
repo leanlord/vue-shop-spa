@@ -15,7 +15,7 @@
      * @property string|null $deleted_at
      * @property \Illuminate\Support\Carbon|null $created_at
      * @property \Illuminate\Support\Carbon|null $updated_at
-     * @property-read \App\Models\Household|null $household
+     * @property-read \App\Models\Jewelry|null $jewelry
      * @method static \Database\Factories\ProductFactory factory(...$parameters)
      * @method static \Illuminate\Database\Eloquent\Builder|Product newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder|Product newQuery()
@@ -35,10 +35,9 @@
         protected $fillable = [
             'user_id',
             'clothe_id',
-            'size',
         ];
 
         public function clothe(): BelongsTo {
-            return $this->belongsTo(Household::class);
+            return $this->belongsTo(Jewelry::class);
         }
     }
