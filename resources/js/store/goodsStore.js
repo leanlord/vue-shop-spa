@@ -5,7 +5,6 @@ export const goodsStore = defineStore("goods", {
     state: () => {
         return {
             goods: {},
-            sizes: ["S", "M", "L", "XL"],
         };
     },
     actions: {

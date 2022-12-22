@@ -1,8 +1,8 @@
 <template>
     <header class="header">
         <nav class="nav">
-            <router-link class="nav__link" to="/catalog">Женщинам</router-link>
-            <router-link class="nav__link" to="/catalog">Мужчинам</router-link>
+            <router-link class="nav__link" to="/catalog">Товары для дома</router-link>
+            <router-link class="nav__link" to="/catalog">Товары для огорода</router-link>
             <a class="nav__link" href="#">Контакты</a>
         </nav>
         <div class="burger">

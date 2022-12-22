@@ -1,27 +1,11 @@
 <template>
     <li class="product">
         <img class="product__image" :src="src" alt="Фото товара" />
-        <p class="product__name">Джинсовка</p>
+        <p class="product__name">Товар</p>
         <p class="product__name">{{ color }}</p>
         <p class="product__price">{{ price }}$</p>
-        <ul class="product__list">
-            <li
-                v-for="(size, idx) in store.sizes"
-                class="product__item"
-                :key="size"
-            >
-                <button
-                    :class="{ active: activeButton === idx }"
-                    @click="setSize(idx)"
-                    class="btn"
-                >
-                    {{ size }}
-                </button>
-            </li>
-        </ul>
         <button
-            :disabled="!activeSize"
-            @click="$emit('addProduct', activeSize, id)"
+            @click="$emit('addProduct', id)"
             class="btn product__btn"
         >
             Добавить в корзину
@@ -34,28 +18,15 @@ import { goodsStore } from "../store/goodsStore";
 import { ref } from "vue";
 
 export default {
-    name: "CatalogGood",
+    name: "CatalogProduct",
     props: ["src", "name", "price", "id", "color"],
     emits: ["addProduct"],
     setup() {
         const store = goodsStore();
-        let activeSize = ref("");
         let activeButton = ref("");
-        const setSize = (idx) => {
-            // checking for clicking on the same button and toggling values to defaults
-            if (idx === activeButton.value) {
-                activeButton.value = "";
-                activeSize.value = "";
-            } else {
-                activeButton.value = idx;
-                activeSize.value = store.sizes[idx];
-            }
-        };
 
         return {
             store,
-            activeSize,
-            setSize,
             activeButton,
         };
     },
@@ -84,7 +55,7 @@ export default {
     }
     &__image {
         margin-bottom: auto;
-        width: 400px;
+        width: 300px;
     }
     &__btn {
         color: white;

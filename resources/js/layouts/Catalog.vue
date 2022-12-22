@@ -15,15 +15,6 @@
                 <li class="catalog__item">
                     <a href="#" class="catalog__link">Специальные позиции</a>
                 </li>
-                <li class="catalog__item">
-                    <a href="#" class="catalog__link">Bestsellers</a>
-                </li>
-                <li class="catalog__item">
-                    <a href="#" class="catalog__link">Вся одежда</a>
-                </li>
-                <li class="catalog__item">
-                    <a href="#" class="catalog__link">Цвет</a>
-                </li>
             </ul>
         </div>
         <div class="catalog__goods">
@@ -42,25 +33,24 @@
 
 <script>
 import CatalogProduct from "../components/CatalogProduct";
-import { onMounted, ref, watch } from "vue";
-import { storeToRefs } from "pinia";
+import {onMounted, ref, watch} from "vue";
+import {storeToRefs} from "pinia";
 import ModalGoods from "../components/ModalGoods";
-import { goodsStore } from "../store/goodsStore";
+import {goodsStore} from "../store/goodsStore";
 import axios from "axios";
-import { userStore } from "../store/userStore";
+import {userStore} from "../store/userStore";
 import CatalogFiltration from "../components/CatalogFiltration";
 
 export default {
     name: "Catalog",
     setup() {
         const store = goodsStore();
-        const { goods } = storeToRefs(store);
+        const {goods} = storeToRefs(store);
         const storeUser = userStore();
         let showModal = ref(false);
-        const addProduct = async (clotheSize, id) => {
+        const addProduct = async (id) => {
             if (storeUser.isAuth) {
                 await axios.post("/api/products", {
-                    size: clotheSize,
                     clothe_id: id,
                 });
                 showModal.value = true;
@@ -94,6 +84,7 @@ export default {
 
 <style lang="scss">
 @import "resources/sass/app";
+
 .catalog {
     display: flex;
 
@@ -129,9 +120,11 @@ export default {
         text-decoration: none;
         text-align: center;
         color: $dark-grey;
+
         &:hover {
             background-color: #e4c5ad;
         }
+
         &:active {
             background-color: $beige;
         }
@@ -149,6 +142,7 @@ export default {
         &__filtration {
             display: none;
         }
+
         &__goods {
             justify-content: center;
         }

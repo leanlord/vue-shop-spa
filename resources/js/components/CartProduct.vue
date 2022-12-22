@@ -21,12 +21,11 @@
             <div class="card__content">
                 <div class="card__header">
                     <p class="card__title">
-                        Зелёное платье-рубашка в белую полоску
+                        Товар
                     </p>
                     <p class="card__price">{{ price }} $</p>
                 </div>
                 <div class="card__info">
-                    <button class="btn card__btn">{{ size }}</button>
                     <div class="counter card__counter">
                         <button
                             :disabled="number < 2"
@@ -90,7 +89,7 @@ import { productsStore } from "../store/productsStore";
 
 export default {
     name: "CartProduct",
-    props: ["img", "price", "size", "id"],
+    props: ["img", "price", "id"],
     emits: ["decreaseCount", "increaseCount"],
     setup() {
         const store = productsStore();
@@ -118,12 +117,12 @@ export default {
     padding-top: 12px;
     padding-bottom: 18px;
     &__img {
-        width: 120px;
-        height: 180px;
+        width: 150px;
         margin-right: 10px;
         object-fit: cover;
     }
     &__content {
+        width: 150px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
