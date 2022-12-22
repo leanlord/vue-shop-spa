@@ -11,7 +11,7 @@
          * @return void
          */
         public function up() {
-            Schema::dropColumns('clothes', 'size');
+            Schema::dropColumns('households', 'size');
 
             Schema::table('products', function (Blueprint $blueprint) {
                 $blueprint->string('size')->default('M');
@@ -24,7 +24,7 @@
          * @return void
          */
         public function down() {
-            Schema::table('clothes', function (Blueprint $blueprint) {
+            Schema::table('households', function (Blueprint $blueprint) {
                 $blueprint->string('size')->default('M');
             });
 

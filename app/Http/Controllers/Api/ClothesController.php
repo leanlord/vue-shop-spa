@@ -3,8 +3,8 @@
     namespace App\Http\Controllers\Api;
 
     use App\Http\Controllers\Controller;
-    use App\Http\Resources\ClotheResource;
-    use App\Models\Clothe;
+    use App\Http\Resources\HouseholdResource;
+    use App\Models\Household;
     use Illuminate\Http\JsonResponse;
 
     class ClothesController extends Controller
@@ -20,24 +20,24 @@
          */
         public function index(): JsonResponse {
             return response()->json([
-                'data' => ClotheResource::collection(Clothe::all()),
+                'data' => HouseholdResource::collection(Household::all()),
             ]);
         }
 
         /**
          * Display the specified resource.
          *
-         * @param Clothe $clothe
-         * @return ClotheResource
+         * @param Household $household
+         * @return HouseholdResource
          */
-        public function show(Clothe $clothe): ClotheResource {
-            return new ClotheResource($clothe);
+        public function show(Household $household): HouseholdResource {
+            return new HouseholdResource($household);
         }
 
         public function store() {
-            $clothe = Clothe::create(request()->only(['id', 'color', 'img', 'price']));
+            $household = Household::create(request()->only(['id', 'color', 'img', 'price']));
             return response()->json([
-                'data' => new ClotheResource($clothe),
+                'data' => new HouseholdResource($household),
             ]);
         }
     }

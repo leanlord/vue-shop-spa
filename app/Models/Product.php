@@ -15,7 +15,7 @@
      * @property string|null $deleted_at
      * @property \Illuminate\Support\Carbon|null $created_at
      * @property \Illuminate\Support\Carbon|null $updated_at
-     * @property-read \App\Models\Clothe|null $clothe
+     * @property-read \App\Models\Household|null $household
      * @method static \Database\Factories\ProductFactory factory(...$parameters)
      * @method static \Illuminate\Database\Eloquent\Builder|Product newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder|Product newQuery()
@@ -39,6 +39,6 @@
         ];
 
         public function clothe(): BelongsTo {
-            return $this->belongsTo(Clothe::class);
+            return $this->belongsTo(Household::class);
         }
     }

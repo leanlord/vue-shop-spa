@@ -32,7 +32,7 @@
         ]);
     });
 
-    Route::apiResource('clothes', ClothesController::class, [
+    Route::apiResource('household', ClothesController::class, [
         'except' => ['update', 'destroy'],
     ]);
 

@@ -2,7 +2,7 @@
 
     namespace Database\Seeders;
 
-    use App\Models\Clothe;
+    use App\Models\Household;
     use App\Models\Product;
     use App\Models\User;
     use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -17,7 +17,7 @@
          */
         public function run() {
             User::factory(5)->create();
-            Clothe::factory(20)->create();
+            Household::factory(20)->create();
             Product::factory(20)->create();
         }
     }

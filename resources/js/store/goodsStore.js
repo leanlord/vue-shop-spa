@@ -14,7 +14,7 @@ export const goodsStore = defineStore("goods", {
                 data: {
                     data: { ...options },
                 },
-            } = await axios.get("/api/clothes");
+            } = await axios.get("/api/household");
             this.goods = options;
         },
     },
