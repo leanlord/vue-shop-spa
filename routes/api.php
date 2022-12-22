@@ -1,7 +1,7 @@
 <?php
 
     use App\Http\Controllers\Api\AuthController;
-    use App\Http\Controllers\Api\ClothesController;
+    use App\Http\Controllers\Api\HouseholdController;
     use App\Http\Controllers\Api\ProductController;
     use App\Http\Requests\UpdateAccountRequest;
     use Illuminate\Http\Request;
@@ -32,7 +32,7 @@
         ]);
     });
 
-    Route::apiResource('household', ClothesController::class, [
+    Route::apiResource('household', HouseholdController::class, [
         'except' => ['update', 'destroy'],
     ]);
 

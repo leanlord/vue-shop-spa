@@ -3,11 +3,11 @@
     namespace App\Http\Controllers\Api;
 
     use App\Http\Controllers\Controller;
-    use App\Http\Resources\JewelryResource;
-    use App\Models\Jewelry;
+    use App\Http\Resources\HouseholdResource;
+    use App\Models\Household;
     use Illuminate\Http\JsonResponse;
 
-    class ClothesController extends Controller
+    class HouseholdController extends Controller
     {
         public function __construct() {
             $this->middleware('is.admin', [
@@ -20,24 +20,24 @@
          */
         public function index(): JsonResponse {
             return response()->json([
-                'data' => JewelryResource::collection(Jewelry::all()),
+                'data' => HouseholdResource::collection(Household::all()),
             ]);
         }
 
         /**
          * Display the specified resource.
          *
-         * @param Jewelry $jewelry
-         * @return JewelryResource
+         * @param Household $household
+         * @return HouseholdResource
          */
-        public function show(Jewelry $jewelry): JewelryResource {
-            return new JewelryResource($jewelry);
+        public function show(Household $household): HouseholdResource {
+            return new HouseholdResource($household);
         }
 
         public function store() {
-            $jewelry = Jewelry::create(request()->only(['id', 'img', 'price']));
+            $household = Household::create(request()->only(['id', 'img', 'price']));
             return response()->json([
-                'data' => new JewelryResource($jewelry),
+                'data' => new HouseholdResource($household),
             ]);
         }
     }

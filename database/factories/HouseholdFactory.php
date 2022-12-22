@@ -2,15 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\Jewelry;
+use App\Models\Household;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Jewelry>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Household>
  */
-class JewelryFactory extends Factory
+class HouseholdFactory extends Factory
 {
-    protected $model = Jewelry::class;
+    protected $model = Household::class;
     /**
      * Define the model's default state.
      *
@@ -28,8 +28,6 @@ class JewelryFactory extends Factory
             "https://media.komus.ru/medias/sys_master/root/h01/h07/10923608932382/1461958-1-800Wx800H.jpg",
             "https://media.komus.ru/medias/sys_master/root/h8f/h37/10296776523806/870161-1-800Wx800H.jpg",
         ];
-
-
 
         return [
             'img' => $this->faker->randomElement($links),
