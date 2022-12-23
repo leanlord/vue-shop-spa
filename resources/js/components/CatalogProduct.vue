@@ -55,7 +55,7 @@ export default {
     }
     &__image {
         margin-bottom: auto;
-        width: 300px;
+        width: 220px;
     }
     &__btn {
         color: white;
