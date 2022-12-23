@@ -17,13 +17,13 @@
             <li class="menu__item">
                 <div class="line"></div>
                 <router-link class="menu__link" to="/catalog"
-                    >Мужчинам
+                    >Товары для дома
                 </router-link>
             </li>
             <li class="menu__item">
                 <div class="line"></div>
                 <router-link class="menu__link" to="/catalog"
-                    >Женщинам
+                    >Товары для огорода
                 </router-link>
             </li>
             <li class="menu__item">
