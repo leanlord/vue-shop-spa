@@ -4,19 +4,6 @@
         @close-modal="showModal = false"
     ></modal-goods>
     <div class="catalog">
-        <div class="catalog__filtration">
-            <ul class="catalog__list">
-                <li class="catalog__item">
-                    <a href="#" class="catalog__link">Sale</a>
-                </li>
-                <li class="catalog__item">
-                    <a href="#" class="catalog__link">New</a>
-                </li>
-                <li class="catalog__item">
-                    <a href="#" class="catalog__link">Специальные позиции</a>
-                </li>
-            </ul>
-        </div>
         <div class="catalog__goods">
             <catalog-product
                 @add-product="addProduct"
@@ -86,7 +73,6 @@ export default {
 @import "resources/sass/app";
 
 .catalog {
-    display: flex;
 
     &__filtration {
         margin-right: 25px;
@@ -131,9 +117,8 @@ export default {
     }
 
     &__goods {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 

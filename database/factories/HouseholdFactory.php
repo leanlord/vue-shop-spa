@@ -19,14 +19,12 @@ class HouseholdFactory extends Factory
     public function definition()
     {
         $links = [
-            "https://media.komus.ru/medias/sys_master/root/he3/ha8/10034903875614/363576-1-800Wx800H.jpg",
-            "https://media.komus.ru/medias/sys_master/root/ha0/h28/11174588940318/784581-1-800Wx800H.jpg",
-            "https://media.komus.ru/medias/sys_master/root/he4/h7e/10338826354718/1117961-1-800Wx800H.jpg",
-            "https://media.komus.ru/medias/sys_master/root/h15/h12/11433230434334/1557731-1-800Wx800H.jpg",
-            "https://media.komus.ru/medias/sys_master/root/h02/h22/11231595986974/1552077-1-800Wx800H.jpg",
-            "https://media.komus.ru/medias/sys_master/root/hb5/hbe/11532065669150/213386-1-800Wx800H.jpg",
-            "https://media.komus.ru/medias/sys_master/root/h01/h07/10923608932382/1461958-1-800Wx800H.jpg",
-            "https://media.komus.ru/medias/sys_master/root/h8f/h37/10296776523806/870161-1-800Wx800H.jpg",
+            "https://pmdn.sokolov.io/pics/7C/F9/FC01C64713E82A96F7CA4B399224.jpg",
+            "https://pmdn.sokolov.io/pics/08/6E/A13C745C30778061059A2AF8B993.jpg",
+            "https://pmdn.sokolov.io/pics/11/C7/EA58DDC27772FB6E89ACC3BD8145.jpg",
+            "https://pmdn.sokolov.io/pics/84/DE/0E48A273029B8C499619DB7291A9.jpg",
+            "https://pmdn.sokolov.io/pics/42/C9/ABADD9B76F04F55B67725059FF1D.jpg",
+            "https://pmdn.sokolov.io/pics/51/ED/D069C71795B089700DB4D6572BE1.jpg"
         ];
 
         return [

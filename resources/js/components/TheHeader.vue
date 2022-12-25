@@ -1,8 +1,8 @@
 <template>
     <header class="header">
         <nav class="nav">
-            <router-link class="nav__link" to="/catalog">Товары для дома</router-link>
-            <router-link class="nav__link" to="/catalog">Товары для огорода</router-link>
+            <router-link class="nav__link" to="/catalog">Кольца</router-link>
+            <router-link class="nav__link" to="/catalog">Серги</router-link>
             <a class="nav__link" href="#">Контакты</a>
         </nav>
         <div class="burger">
@@ -40,9 +40,6 @@
                 <router-link v-if="isAdmin" to="/admin" class="header__link">
                     Админ-панель
                 </router-link>
-                <a class="header__link" href="tel:79034655304"
-                    >+7 903 465 53 04
-                </a>
                 <router-link class="header__link" to="/account"
                     >{{ isAuth ? "Кабинет" : "Войти" }}
                 </router-link>
