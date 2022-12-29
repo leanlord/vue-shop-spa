@@ -6,7 +6,7 @@
     use Illuminate\Http\Resources\Json\JsonResource;
     use JetBrains\PhpStorm\ArrayShape;
 
-    class HouseholdResource extends JsonResource
+    class AutoDetailsResource extends JsonResource
     {
         /**
          * Transform the resource into an array.

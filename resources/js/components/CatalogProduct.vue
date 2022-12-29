@@ -3,7 +3,7 @@
         <img class="product__image" :src="src" alt="Фото товара" />
         <p class="product__name">Товар</p>
         <p class="product__name">{{ color }}</p>
-        <p class="product__price">{{ price }}$</p>
+        <p class="product__price">{{ price }}₽</p>
         <button
             @click="$emit('addProduct', id)"
             class="btn product__btn"

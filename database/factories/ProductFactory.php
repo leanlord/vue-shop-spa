@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Household;
+use App\Models\AutoDetails;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -22,7 +22,7 @@ class ProductFactory extends Factory
     {
         return [
             'user_id' => $this->faker->numberBetween(1, User::count()),
-            'clothe_id' => $this->faker->numberBetween(1, Household::count()),
+            'clothe_id' => $this->faker->numberBetween(1, AutoDetails::count()),
         ];
     }
 }

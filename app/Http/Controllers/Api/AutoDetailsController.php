@@ -3,11 +3,11 @@
     namespace App\Http\Controllers\Api;
 
     use App\Http\Controllers\Controller;
-    use App\Http\Resources\HouseholdResource;
-    use App\Models\Household;
+    use App\Http\Resources\AutoDetailsResource;
+    use App\Models\AutoDetails;
     use Illuminate\Http\JsonResponse;
 
-    class HouseholdController extends Controller
+    class AutoDetailsController extends Controller
     {
         public function __construct() {
             $this->middleware('is.admin', [
@@ -20,24 +20,24 @@
          */
         public function index(): JsonResponse {
             return response()->json([
-                'data' => HouseholdResource::collection(Household::all()),
+                'data' => AutoDetailsResource::collection(AutoDetails::all()),
             ]);
         }
 
         /**
          * Display the specified resource.
          *
-         * @param Household $household
-         * @return HouseholdResource
+         * @param AutoDetails $household
+         * @return AutoDetailsResource
          */
-        public function show(Household $household): HouseholdResource {
-            return new HouseholdResource($household);
+        public function show(AutoDetails $household): AutoDetailsResource {
+            return new AutoDetailsResource($household);
         }
 
         public function store() {
-            $household = Household::create(request()->only(['id', 'img', 'price']));
+            $household = AutoDetails::create(request()->only(['id', 'img', 'price']));
             return response()->json([
-                'data' => new HouseholdResource($household),
+                'data' => new AutoDetailsResource($household),
             ]);
         }
     }

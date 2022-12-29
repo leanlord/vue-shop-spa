@@ -20,7 +20,7 @@
             return [
                 'id' => $this->id,
                 'created_at' => $this->created_at,
-                'clothe' => new HouseholdResource($this->clothe),
+                'clothe' => new AutoDetailsResource($this->clothe),
             ];
         }
     }

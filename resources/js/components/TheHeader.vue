@@ -1,8 +1,9 @@
 <template>
     <header class="header">
         <nav class="nav">
-            <router-link class="nav__link" to="/catalog">Кольца</router-link>
-            <router-link class="nav__link" to="/catalog">Серги</router-link>
+            <router-link class="nav__link" to="/catalog">Колёса</router-link>
+            <router-link class="nav__link" to="/catalog">Электрооборудование</router-link>
+            <router-link class="nav__link" to="/catalog">Аккумуляторы</router-link>
             <a class="nav__link" href="#">Контакты</a>
         </nav>
         <div class="burger">
@@ -98,7 +99,9 @@ export default {
 @import "resources/sass/app";
 
 .header {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
     align-items: center;
     justify-content: space-between;
     padding-top: 40px;
@@ -117,6 +120,7 @@ export default {
 
     &__aside {
         display: flex;
+        justify-self: end;
         align-items: center;
     }
 
